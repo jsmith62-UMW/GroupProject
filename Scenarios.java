@@ -8,6 +8,10 @@ public class Scenarios {
 
     //method returns random scenario from selected part of story
     public String choice(int stage){
+        //creating the arraylists
+        beginningScenarios = new ArrayList<>();
+        middleScenarios = new ArrayList<>();
+        finalScenarios = new ArrayList<>();
         //adding string to beginning
         beginningScenarios.add("dragon");
         beginningScenarios.add("goblin");
