@@ -17,20 +17,20 @@ public class GameGUI extends JFrame
 
     public GameGUI()
     {
-        setTitle("Calculate the Factorial");
+        setTitle("Game Moves");
         setVisible(true);
         setSize(400, 200);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+
+
+
+
         jp.add(jt);
-
-
-
         //make it so that when the user presses "Enter" it passes the input into main as a string
         jt.addActionListener(new ActionListener()
         {
-            public void actionPerformed(ActionEvent e)
-            {
+            public void actionPerformed(ActionEvent e) {
                 String input = jt.getText();
 
                 //convert to integer
@@ -51,8 +51,14 @@ public class GameGUI extends JFrame
                 input = Integer.toString(number);
                 //print out the result
                 jl.setText(input);
+
+                jl.setText("GADFADFAADF\nDFADFADFADFADFA\nDAFADFADFADFdfafadfadfafafdafadfadfadadfadf");
             }
         });
+
+
+
+
 
         jp.add(jb);
         jb.addActionListener(new ActionListener()
@@ -61,26 +67,7 @@ public class GameGUI extends JFrame
         {
             public void actionPerformed(ActionEvent e)
             {
-                String input = jt.getText();
-
-                //convert to integer
-                int number = Integer.parseInt(input);
-
-
-                //calculate the factorial
-                int i = number;
-                // int number=5;//It is the number to calculate factorial
-                while(i >= 2){
-                    i = i - 1;
-                    number = number * i;
-
-                }
-
-
-                //convert the factorial back into a String
-                input = Integer.toString(number);
-                //print out the result
-                jl.setText(input);
+            //blank for now
             }
         });
 
@@ -89,9 +76,9 @@ public class GameGUI extends JFrame
 
     }
 
-   // public static void main(String[] args)
-    //{
-     //   Factorial t = new Factorial();
-    //}
+    public static void main(String[] args)
+    {
+        GameGUI t = new GameGUI();
+    }
 
 }

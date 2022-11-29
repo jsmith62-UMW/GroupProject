@@ -2,10 +2,18 @@ import java.util.Scanner;
 
 public class MainGame {
 
+
+
+
+
     public static void main(String[] args){
         Scanner gui = new Scanner(System.in);
         boolean game = true;
         int stage = 1;
+
+        //initiate both GUI
+        RulesGUI r = new RulesGUI();
+        GameGUI g = new GameGUI();
 
         while (game){
             String scenario = "dragon";
