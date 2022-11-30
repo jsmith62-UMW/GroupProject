@@ -1,7 +1,7 @@
 import java.util.Scanner;
 
 public class MainGame {
-
+public int stage = 1;
 
 
 
@@ -9,11 +9,11 @@ public class MainGame {
     public static void main(String[] args){
         Scanner gui = new Scanner(System.in);
         boolean game = true;
-        int stage = 0;
+
         String option = "";
         //int stage = scenario.load
         boolean combat;
-
+        boolean victory = false;
         //initiate both GUI
         RulesGUI r = new RulesGUI();
         GameGUI g = new GameGUI();
@@ -44,6 +44,7 @@ public class MainGame {
                             System.out.println("your bravery impresses the dragon and it give you a valiant end");
                             //save the victory
                             game = false;
+                            combat = false;
                         }  else {
                             System.out.println("you can't do that yet\"invalid input, try again\"");
                         }
@@ -59,7 +60,7 @@ public class MainGame {
                             System.out.println("you trick the troll with a coin and run past him!");
                             combat = false;
 
-                            stage = 2;
+                            //stage = 2;
                         } else if (option.equals("run")) {
                             System.out.print("defeat! you have failed in your quest! the troll throws his club at you");
                             game = false;
@@ -138,9 +139,112 @@ public class MainGame {
                     }
                     break;
 
+                case"ferry":
+                    System.out.println("afairyblockstheferrytoferryyouacrossthefairlyfoulfetidriver!");
+                    System.out.println("whatdoyoudo?");
+                    while(combat){
+                        option=gui.next();
+                        if(option.equals("trick")){
+
+                            System.out.println("fabulouslythefairyisfascinatedwithyourfacadeandfallsinstep!");
+                            //stage=3;
+                            combat=false;
+
+                        }else if(option.equals("run")){
+                            System.out.print("yourunfromthefairy!forsomereason?");
+                            combat=false;
+
+
+                        }else if(option.equals("fight")){
+                            System.out.println("thefairyfollowsyourfoulblowsandfoilsyourattemptsatfighting\ntryagain");
+                        }else{
+                            System.out.println("youcan'tdothatyet\"invalidinput,tryagain\"");
+                        }
+                    }
+                    break;
+                case"GIANTTROLL":
+                    System.out.println("thereisaGiantTrollblockingyourpathforward!");
+                    System.out.println("whatdoyoudo?");
+                    while(combat){
+                        option=gui.next();
+                        if(option.equals("trick")){
+
+                            System.out.println("WiththefairysdustoffabulousnessyoutrickthetrollintofallingintotheverybridgeitprotectsCongrats!");
+                            combat=false;game=false;
+                            victory=true;
+                        }else if(option.equals("run")){
+                            System.out.print("itbellowsinsultsasyourunawayfromyourfinalbattle!");
+                            combat=false;
+
+
+                        }else if(option.equals("fight")){
+                            System.out.println("yourswordisstuckinthetrollshealingfleshandyouarecrushed!");
+                            combat=true;game=false;
+                        }else{
+                            System.out.println("youcan'tdothatyet\"invalidinput,tryagain\"");
+                        }
+                    }
+                    break;
+                case"ANCIENTDRAGON":
+                    System.out.println("thereisanAncientdragonattackingfromabove!");
+                    System.out.println("whatdoyoudo?");
+                    while(combat){
+                        option=gui.next();
+                        if(option.equals("trick")){
+
+                            System.out.println("thedragonseesthroughyourtrickandburnsyou!");
+                            combat=false;game=false;
+
+                        }else if(option.equals("run")){
+                            System.out.print("itsweepstocatchyourunningawaybutthefairycastsaspelltomakeyoufloatabovethedragonyoulandonitsbackandtamethebeast!");
+                            combat=false;
+
+
+                        }else if(option.equals("fight")){
+                            System.out.println("itsarmorisstrong...yoursisnt");
+                            combat=true;game=false;
+                        }else{
+                            System.out.println("youcan'tdothatyet\"invalidinput,tryagain\"");
+                        }
+                    }
+                    break;
+                case"GOBLINKING":
+                    System.out.println("thegoblinkingguardshiscastle!");
+                    System.out.println("whatdoyoudo?");
+                    while(combat){
+                        option=gui.next();
+                        if(option.equals("trick")){
+
+                            System.out.println("thekingiscunningandcannotbetricked!helaughsyourattemptaway\ntryagain");
+
+
+                        }else if(option.equals("run")){
+                            System.out.print("thekingisslowandyouareabletorunaway!");
+                            combat=false;
+
+
+                        }else if(option.equals("fight")){
+                            System.out.println("thekingandyouduel!atthedecisivemomentthefairythrowsfairydustintothekingseyesallowingyoutolandthekillingblow");
+                            combat=true;game=false;
+                            victory=true;
+                        }else{
+                            System.out.println("youcan'tdothatyet\"invalidinput,tryagain\"");
+                        }
+                    }
+                    break;
+
             }
         }
+        if(victory){
+            System.out.println("VICTORY!!!");
+        }else
+            System.out.println("DEFEAT!!!");
 
 
+
+
+}
+    public int getstage(){
+        return stage;
     }
 }
