@@ -13,24 +13,29 @@ public class RulesGUI extends JFrame
 
     public RulesGUI()
     {
-      // setTitle("Calculate the Factorial");
-        //setVisible(true);
-        //setSize(400, 200);
-        //setDefaultCloseOperation(EXIT_ON_CLOSE);
-
-        //jp.add(jl);
-        //add(jp);
 
         JFrame f= new JFrame();
-        JTextArea area=new JTextArea("Welcome to our game\n fight the bad guys\n no one likes them");
-        area.setBounds(10,30, 300,500);
+
+        //this prints out the first text and makes the variable 'area' that you can use to append
+        JTextArea area=new JTextArea("Welcome to our game\n fight the bad guys\n no one likes them\n" +
+                "when you enter a scenario you can do three things\nyou can fight but remember you are only human\nyou can run away from a fight too\n or if your tricky you could try and trick your foes\n" +
+                "if you grab the trolls bag of coins you can use\n them in stage2 and 3 by saying coins" +"\nafter your run through with the fairy you can say\n fairy and enlist its help in stage 3\n ");
+        area.setBounds(10,30, 270,220);
         f.add(area);
-        f.setSize(350,600);
+        f.setSize(350,400);
         f.setLayout(null);
         f.setVisible(true);
 
+        //set title
+        f.setTitle("Rules and Info");
+
         area.setEditable(false);
         f.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+
+//edit here. This is how you edit the textAreas
+        //   area.setText("");
+        //     area.append("hi there");
 
 
     }
@@ -38,7 +43,7 @@ public class RulesGUI extends JFrame
 
 
 
-        public static void main(String[] args)
+    public static void main(String[] args)
     {
 
 
@@ -46,10 +51,7 @@ public class RulesGUI extends JFrame
 
 
 
-       RulesGUI t = new RulesGUI();
-       // JLabel story = new JLabel("Yo what is good?");
-        //JLabel rule = new JLabel("HAAHAHA");
-
+        RulesGUI t = new RulesGUI();
     }
 
 }
