@@ -6,7 +6,8 @@ public class Scenarios {
     private ArrayList<String> middleScenarios;
     private ArrayList<String> finalScenarios;
 
-    public void generateScenarios(){
+    //method returns random scenario from selected part of story
+    public String choice(int stage){
         //creating the arraylists
         beginningScenarios = new ArrayList<>();
         middleScenarios = new ArrayList<>();
@@ -23,19 +24,16 @@ public class Scenarios {
         finalScenarios.add("giant troll");
         finalScenarios.add("ancient dragon");
         finalScenarios.add("goblin king");
-    }
-    //method returns random scenario from selected part of story
-    public String choice(int stage){
+        //random decider
         Random rand = new Random();
+        int decide = rand.nextInt(3);
+        //choice
         if (stage == 1){
-            int decide1 = rand.nextInt(beginningScenarios.size());
-            return beginningScenarios.get(decide1);
+            return beginningScenarios.get(decide);
         } else if (stage == 2) {
-            int decide2 = rand.nextInt(middleScenarios.size());
-            return middleScenarios.get(decide2);
+            return middleScenarios.get(decide);
         } else if (stage == 3) {
-            int decide3 = rand.nextInt(finalScenarios.size());
-            return finalScenarios.get(decide3);
+            return finalScenarios.get(decide);
         }
         return null;
     }
