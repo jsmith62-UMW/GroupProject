@@ -27,17 +27,14 @@ public class MainGame {
 
         FileReader fin ;
         FileWriter fout;
+
         //constructing file architecture
         try {
             fin = new FileReader(save);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        try {
-            fout = new FileWriter(save);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
+
         Scanner file = new Scanner(fin);
         System.out.println("do you want to load from a save? y/n");
         String temp = in.next();
@@ -48,6 +45,12 @@ public class MainGame {
         } else {
             MainGame.changeStage(file.next());
             file.close();
+        }
+
+        try {
+            fout = new FileWriter(save);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
 
 
@@ -98,12 +101,6 @@ public class MainGame {
         resultGUI.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         RulesGUI r = new RulesGUI();
-
-
-
-
-
-
 
         Scanner gui = new Scanner(System.in);
         boolean game = true;
@@ -504,7 +501,8 @@ public class MainGame {
 
                             area2.setText("");
                             area2.append("the king and you duel!\n at the decisive moment the fairy throws fairy dust into the kings eyes \n allowing you to land the killing blow");
-                            combat=true;game=false;
+                            combat=false;
+                            game=false;
                             victory=true;
 
                         }else if (option.equals("coins")) {

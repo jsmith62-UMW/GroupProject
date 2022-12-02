@@ -6,6 +6,7 @@ public class Scenarios {
     private ArrayList<String> middleScenarios;
     private ArrayList<String> finalScenarios;
 
+    //populates the arraylists with the strings neccessary to make the scenarios in main run
     public void generateScenarios(){
         //creating the arraylists
         beginningScenarios = new ArrayList<>();

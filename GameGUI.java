@@ -21,10 +21,6 @@ public class GameGUI extends JFrame
     public GameGUI()
     {
 
-
-
-
-
         //format for GUI
         setTitle("Stage = " + MainGame.getStage());
         setVisible(true);
@@ -32,12 +28,7 @@ public class GameGUI extends JFrame
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 
-
-
-
         //format for Scenario Result
-
-
 
 
         GUI.add(inputBar);
@@ -56,6 +47,7 @@ public class GameGUI extends JFrame
 
     }
 
+    //get the answer from the user
     public String getAnswer() {
         String temp = answer;
         answer = "";
@@ -88,12 +80,8 @@ public class GameGUI extends JFrame
         f.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 
-
-
         //change title of GUI
         t.setTitle("Moves");
-
-
 
         //format for Scenario display
         JFrame out= new JFrame();
