@@ -1,4 +1,4 @@
-
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -10,75 +10,108 @@ import javax.swing.JTextField;
 
 public class GameGUI extends JFrame
 {
-    JPanel jp = new JPanel();
-    JLabel jl = new JLabel();
-    JTextField jt = new JTextField(30);
-    JButton jb = new JButton("Enter");
+    private String answer = "";
+
+    JPanel GUI = new JPanel();
+    JLabel Output = new JLabel();
+    JTextField inputBar = new JTextField(30);
+
+    JButton Button = new JButton("Enter");
 
     public GameGUI()
     {
-        setTitle("Game Moves");
+
+
+
+
+
+        //format for GUI
+        setTitle("Stage = " + MainGame.getStage());
         setVisible(true);
-        setSize(400, 200);
+        setSize(350, 250);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 
 
 
 
-        jp.add(jt);
+        //format for Scenario Result
+
+
+
+
+        GUI.add(inputBar);
         //make it so that when the user presses "Enter" it passes the input into main as a string
-        jt.addActionListener(new ActionListener()
+        inputBar.addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent e) {
-                String input = jt.getText();
-
-                //convert to integer
-                int number = Integer.parseInt(input);
-
-
-                //calculate the factorial
-                int i = number;
-                // int number=5;//It is the number to calculate factorial
-                while(i >= 2){
-                    i = i - 1;
-                    number = number * i;
-
-                }
-
-
-                //convert the factorial back into a String
-                input = Integer.toString(number);
-                //print out the result
-                jl.setText(input);
-
-                jl.setText("GADFADFAADF\nDFADFADFADFADFA\nDAFADFADFADFdfafadfadfafafdafadfadfadadfadf");
+                //do stuff when enter is pressed
+                String input = inputBar.getText();
+                answer = input;
             }
         });
 
-
-
-
-
-        jp.add(jb);
-        jb.addActionListener(new ActionListener()
-
-                //passes string into main if button is pressed
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-            //blank for now
-            }
-        });
-
-        jp.add(jl);
-        add(jp);
+        GUI.add(Output);
+        add(GUI);
 
     }
 
+    public String getAnswer() {
+        String temp = answer;
+        answer = "";
+        return temp;
+
+    }
+
+
+    //for testing what main has to do
     public static void main(String[] args)
     {
         GameGUI t = new GameGUI();
+
+
+        //format for Scenario display
+        JFrame f= new JFrame();
+
+        //this prints out the first text and makes the variable 'area' that you can use to append
+        JTextArea area=new JTextArea("This is the scenario");
+        area.setBounds(10,30, 270,220);
+        f.add(area);
+        f.setSize(350,400);
+        f.setLayout(null);
+        f.setVisible(true);
+
+        //set title
+        f.setTitle("Situation Description");
+
+        area.setEditable(false);
+        f.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+
+
+
+        //change title of GUI
+        t.setTitle("Moves");
+
+
+
+        //format for Scenario display
+        JFrame out= new JFrame();
+
+        //this prints out the first text and makes the variable 'area' that you can use to append
+        JTextArea area2=new JTextArea("This is the scenario");
+        area2.setBounds(10,30, 270,220);
+        out.add(area2);
+        out.setSize(350,400);
+        out.setLayout(null);
+        out.setVisible(true);
+
+        //set title
+        out.setTitle("Result");
+
+        area.setEditable(false);
+        out.setDefaultCloseOperation(EXIT_ON_CLOSE);
+
     }
 
 }
